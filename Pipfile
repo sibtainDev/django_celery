@@ -9,6 +9,9 @@ django-filter = "==22.1"
 djangorestframework = "*"
 django-environ = "==0.9.0"
 djangorestframework-simplejwt = "*"
+celery = "*"
+redis = "*"
+django-celery-beat = "*"
 
 [dev-packages]
 

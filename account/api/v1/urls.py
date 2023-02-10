@@ -4,12 +4,10 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from account.api.v1.viewsets import AllEmployeeViewSet, EmployeeViewSet, UserRegistrationView, \
-    LoginTokenObtainView
+from account.api.v1.viewsets import UserRegistrationView, LoginTokenObtainView
 
 router = routers.SimpleRouter()
-router.register('employee', EmployeeViewSet, basename='employee')
-router.register('filter_employee', AllEmployeeViewSet, basename='filter_employee')
+
 
 urlpatterns = [
 
