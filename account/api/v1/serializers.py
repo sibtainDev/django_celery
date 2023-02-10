@@ -2,7 +2,7 @@ from rest_framework import serializers
 from rest_framework_simplejwt import exceptions
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from account.models import User, Employee
+from account.models import User
 from utils.helper import check_email
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
@@ -18,7 +18,6 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         )
         user.set_password(validated_data.get('password'))
         user.save()
-        Employee.objects.create(user=user)
         return user
 
 
@@ -56,8 +55,3 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         data = super().validate(attrs)
         return data
 
-
-class EmployeeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Employee
-        fields = "__all__"
